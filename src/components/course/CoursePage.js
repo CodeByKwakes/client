@@ -23,8 +23,10 @@ onTitleChange(event){
 
 onClickSave(){
   // alert(`Saving ${this.state.course.title}`);
-  this.props.dispatch(courseActions.createCourse(this.state.course));
 
+  // use below is mapDispatchToProps is not use in connect()
+  /*this.props.dispatch(courseActions.createCourse(this.state.course));*/
+  this.props.createCourse(this.state.course);
 }
 
 courseRow(course, index){
@@ -54,8 +56,9 @@ courseRow(course, index){
 
 // Props validation
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  /*dispatch: PropTypes.func.isRequired,*/ // if not using mapDispatchToProps in connect()
+  courses: PropTypes.array.isRequired,
+  createCourse: PropTypes.func.isRequired // if using mapDispatchToProps in connect()
 };
 
 function mapStateToProps(state, ownProps) {
@@ -65,8 +68,13 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+  };
+}
 
-export default connect(mapStateToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
 
 // Can also be written like below as well
 /*const connectedStateAndProps = connect(mapStateToProps, mapDispatchToProps);
