@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import { connect } from 'react-redux';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
   constructor(props, context){
@@ -20,13 +22,21 @@ onTitleChange(event){
 }
 
 onClickSave(){
-  alert(`Saving ${this.state.course.title}`);
+  // alert(`Saving ${this.state.course.title}`);
+  this.props.dispatch(courseActions.createCourse(this.state.course));
+
+}
+
+courseRow(course, index){
+  return <div key={index}>{course.title}</div>;
 }
 
     render() {
+      // debugger;
         return (
             <div>
                 <h1>Courses</h1>
+                {this.props.courses.map(this.courseRow)}
                 <h2>Add Course</h2>
                 <input
                 type="text"
@@ -42,4 +52,22 @@ onClickSave(){
     }
 }
 
-export default CoursesPage;
+// Props validation
+CoursesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired
+};
+
+function mapStateToProps(state, ownProps) {
+  // debugger;
+  return {
+    courses: state.courses  // state.course is name of propery in rootReducer from reducers/index.js
+  };
+}
+
+
+export default connect(mapStateToProps)(CoursesPage);
+
+// Can also be written like below as well
+/*const connectedStateAndProps = connect(mapStateToProps, mapDispatchToProps);
+export default connectedStateAndProps(CoursesPage)*/
