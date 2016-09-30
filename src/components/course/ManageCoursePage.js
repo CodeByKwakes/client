@@ -1,20 +1,22 @@
 import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as courseActions from '../../actions/courseActions';
 
-class $ComponentName extends React.Component {
+
+class ManageCoursePage extends React.Component {
   constructor(props, context){
     super(props, context);
   }
 
     render() {
         return (
-
+          <h1>Manage Course</h1>
         );
     }
 }
 
-$ComponentName.propTypes = {
+ManageCoursePage.propTypes = {
   //myProp: PropTypes.string.isRequired // eg. courses: PropTypes.array.isRequired, actions: PropTypes.object.isRequired
 };
 
@@ -26,8 +28,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(/*actions eg. courseActions*/, dispatch)
+    actions: bindActionCreators(courseActions, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)($ComponentName);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
