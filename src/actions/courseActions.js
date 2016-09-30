@@ -1,6 +1,7 @@
 /*This file hold our Course related Action Creators*/
 import * as types from './actionTypes';
 import CourseApi from '../api/mockCourseApi';
+import {beginAjaxCall} from './ajaxStatusActions';
 
 /*export function createCourse(course){
   return { type: types.CREATE_COURSE, course};
@@ -24,6 +25,7 @@ export function updateCourseSuccess(course) {
 // These are used by redux-thunk to support asynchronous interactions.
 export function loadCourses(){
   return function(dispatch){
+    dispatch(beginAjaxCall());
     return CourseApi.getAllCourses().then(courses => {
       dispatch(loadCoursesSussess(courses));
     }).catch(error => {
@@ -34,6 +36,7 @@ export function loadCourses(){
 
 export function saveCourse(course) {
   return function (dispatch, getState) {
+    dispatch(beginAjaxCall());
     return CourseApi.saveCourse(course).then(course => {
       course.id ? dispatch(updateCourseSuccess(course)) : dispatch(createCourseSuccess(course));
     }).catch(error => {
