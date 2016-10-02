@@ -41,6 +41,7 @@ This will run the automated build process, start up a webserver, and open the ap
 |babel-cli|Babel Command line interface |
 |babel-core|Babel Core for transpiling the new JavaScript to old |
 |babel-loader|Adds Babel support to Webpack |
+|babel-eslint|Babel JavaScript Linter |
 |babel-plugin-react-display-name| Add displayName to React.createClass calls |
 |babel-preset-es2015|Babel preset for ES2015|
 |babel-preset-react| Add JSX support to Babel |
