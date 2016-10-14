@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursePage';
 import ClientPage from './components/clients/ClientPage';
+import ManageClientPage from './components/clients/ManageClientPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
 
 export default (

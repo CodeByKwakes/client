@@ -6,7 +6,6 @@ const ClientList = ({clients}) => {
     <table className="table">
       <thead>
       <tr>
-        <th>&nbsp;</th>
         <th>Client Name</th>
       </tr>
       </thead>

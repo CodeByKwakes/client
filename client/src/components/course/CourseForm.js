@@ -7,8 +7,8 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
     <form>
       <h1>Manage Course</h1>
       <TextInput
-        name="title"
-        label="Title"
+        name="clientName"
+        label="Name"
         value={course.title}
         onChange={onChange}
         error={errors.title}/>

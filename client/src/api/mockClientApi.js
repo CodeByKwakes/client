@@ -2,16 +2,16 @@ import delay from './delay';
 
 const clients = [
   {
-    id: 'cory-house',
-    clientName: 'Cory',
+    id: 'charllotte-tilbury',
+    clientName: 'Charllotte Tilbury',
   },
   {
-    id: 'scott-allen',
-    clientName: 'Scott',
+    id: 'rimmel',
+    clientName: 'Rimmel',
   },
   {
-    id: 'dan-wahlin',
-    clientName: 'Dan',
+    id: 'gucci',
+    clientName: 'Gucci',
   }
 ];
 

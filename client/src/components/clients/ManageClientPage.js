@@ -41,8 +41,8 @@ export class ManageClientPage extends React.Component {
     let formIsValid = true;
     let errors = {};
 
-    if (this.state.client.title.length < 5) {
-      errors.title = 'Title must be at least 5 characters.';
+    if (this.state.client.clientName.length < 3) {
+      errors.clientName = 'Client Name must be at least 3 characters.';
       formIsValid = false;
     }
 
@@ -102,13 +102,12 @@ function getClientById(clients, id) {
   // debugger;
 
   const client = clients.filter(client => client.id == id);
-  if (client) return client[0]; //since filter returns an array, have to grab the first.
+  if (client) return client[0];
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
-  const clientId = ownProps.params.id; // from the path `/client/:id`
-
+  const clientId = ownProps.params.id;
   let client = { id: '', clientName: '' };
 
   if (clientId && state.clients.length > 0) {
